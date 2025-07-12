@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EZ Tip Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">EZ Tip Calculator</h1>
+        <p class="text-gray-600">Calculate your tip with ease</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div
+          class="p-6 text-white"
+          style="background: linear-gradient(135deg, #4f46e5 0%, #818cf8 100%)"
+        >
+          <h2 class="text-xl font-semibold">Enter Your Bill Details</h2>
+        </div>
+
+        <div class="p-6">
+          <div class="mb-6">
+            <label for="billAmount" class="block text-gray-700 font-medium mb-2"
+              >Bill Amount</label
+            >
+            <div class="relative">
+              <span
+                class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500"
+                >&#8377;</span
+              >
+              <input
+                type="number"
+                id="billAmount"
+                class="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="0.00"
+                min="0"
+                step="0.01"
+              />
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2"
+              >Tip Percentage</label
+            >
+            <div class="grid grid-cols-3 gap-2 mb-3">
+              <button
+                class="tip-btn py-2 rounded-lg border border-gray-300 hover:bg-indigo-100 transition bg-indigo-50"
+                data-tip="5"
+              >
+                5%
+              </button>
+              <button
+                class="tip-btn py-2 rounded-lg border border-gray-300 hover:bg-indigo-100 transition bg-indigo-50"
+                data-tip="10"
+              >
+                10%
+              </button>
+              <button
+                class="tip-btn py-2 rounded-lg border border-gray-300 hover:bg-indigo-100 transition bg-indigo-50"
+                data-tip="15"
+              >
+                15%
+              </button>
+              <button
+                class="tip-btn py-2 rounded-lg border border-gray-300 hover:bg-indigo-100 transition bg-indigo-50"
+                data-tip="18"
+              >
+                18%
+              </button>
+              <button
+                class="tip-btn py-2 rounded-lg border border-gray-300 hover:bg-indigo-100 transition bg-indigo-50"
+                data-tip="20"
+              >
+                20%
+              </button>
+              <button
+                class="tip-btn py-2 rounded-lg border border-gray-300 hover:bg-indigo-100 transition bg-indigo-50"
+                data-tip="custom"
+              >
+                Custom
+              </button>
+            </div>
+            <div id="customTipContainer" class="hidden">
+              <div class="relative">
+                <input
+                  type="number"
+                  id="customTip"
+                  class="w-full pl-4 pr-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                  placeholder="0"
+                  min="0"
+                  step="1"
+                />
+                <span
+                  class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500"
+                  >%</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <label
+              for="peopleCount"
+              class="block text-gray-700 font-medium mb-2"
+              >Number of People</label
+            >
+            <input
+              type="number"
+              id="peopleCount"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="1"
+              min="1"
+              value="1"
+            />
+          </div>
+        </div>
+
+        <div class="bg-white border-t border-gray-200 p-6 rounded-b-2xl">
+          <div class="flex justify-between mb-4">
+            <span class="font-medium text-gray-600">Subtotal:</span>
+            <span id="subtotal" class="font-medium">&#8377;0.00</span>
+          </div>
+          <div class="flex justify-between mb-4">
+            <span class="font-medium text-gray-600">Tip Amount:</span>
+            <span id="tipAmount" class="font-medium">&#8377;0.00</span>
+          </div>
+          <div class="flex justify-between mb-4 pb-4 border-b border-gray-200">
+            <span class="font-medium text-gray-600">Total:</span>
+            <span id="total" class="font-bold text-lg text-indigo-600"
+              >&#8377;0.00</span
+            >
+          </div>
+          <div class="flex justify-between">
+            <span class="font-medium text-gray-600">Per Person:</span>
+            <span id="perPerson" class="font-bold text-lg text-indigo-600"
+              >&#8377;0.00</span
+            >
+          </div>
+        </div>
+
+        <div class="p-6">
+          <button
+            id="calculateBtn"
+            class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
+          >
+            Calculate
+          </button>
+          <button
+            id="resetBtn"
+            class="w-full mt-3 py-3 rounded-lg font-semibold text-indigo-600 hover:bg-indigo-50 transition"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
